@@ -759,7 +759,7 @@ uis.controller('uiSelectCtrl',
     ctrl.select(null);
     $event.stopPropagation();
     $timeout(function() {
-      //ctrl.focusser[0].focus(); remove focusser
+      ctrl.focusser[0].focus();
     }, 0, false);
   };
 
