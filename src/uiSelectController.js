@@ -26,7 +26,7 @@ uis.controller('uiSelectCtrl',
   ctrl.skipFocusser = false; //Set to true to avoid returning focus to ctrl when item is selected
   ctrl.search = EMPTY_SEARCH;
 
-  ctrl.activeIndex = 0; //Dropdown of choices
+  ctrl.activeIndex = undefined; //Dropdown of choices; initial should be undefined
   ctrl.items = []; //All available choices
 
   ctrl.open = false;
@@ -118,7 +118,10 @@ uis.controller('uiSelectCtrl',
     }
 
   // When the user clicks on ui-select, displays the dropdown list
-  ctrl.activate = function(initSearchValue, avoidReset) {
+  ctrl.activate = function(initSearchValue, avoidReset, event) {
+    if (event) {
+      event.preventDefault(); //remove click on submit forms
+    }
     if (!ctrl.disabled  && !ctrl.open) {
       if(!avoidReset) _resetSearchInput();
 
@@ -754,7 +757,8 @@ uis.controller('uiSelectCtrl',
   });
 
   $scope.$watch('$select.activeIndex', function(activeIndex) {
-    if (activeIndex)
+    //avoid the first element with index = 0
+    if (activeIndex !== undefined)
       $element.find('input').attr(
         'aria-activedescendant',
         'ui-select-choices-row-' + ctrl.generatedId + '-' + activeIndex);
