@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.8 - 2020-05-18T11:32:39.339Z
+ * Version: 0.19.8 - 2020-05-18T19:05:27.335Z
  * License: MIT
  */
 
@@ -903,9 +903,7 @@ uis.controller('uiSelectCtrl',
           }
         }
         break;
-      case KEY.TAB:
-        if (!ctrl.multiple || ctrl.open) ctrl.select(ctrl.items[ctrl.activeIndex], true);
-        break;
+        //remove select on tab
       case KEY.ENTER:
         if(ctrl.open && (ctrl.tagging.isActivated || ctrl.activeIndex >= 0)){
           ctrl.select(ctrl.items[ctrl.activeIndex], ctrl.skipFocusser); // Make sure at least one dropdown item is highlighted before adding if not in tagging mode
