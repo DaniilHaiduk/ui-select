@@ -42,6 +42,11 @@ uis.directive('uiSelect',
         $select.generatedId = uiSelectConfig.generateId();
         $select.baseTitle = attrs.title || 'Select box';
         $select.focusserTitle = $select.baseTitle + ' focus';
+
+        //Added ability to provide data-aria-label and data-aria-required
+        $select.selectorAriaLabel = attrs.ariaLabel || 'Select box';
+        $select.selectorAriaRequired = attrs.ariaRequired || false;
+
         $select.focusserId = 'focusser-' + $select.generatedId;
 
         $select.closeOnSelect = function() {
