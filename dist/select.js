@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.8 - 2020-05-18T11:05:07.448Z
+ * Version: 0.19.8 - 2020-05-18T11:32:39.339Z
  * License: MIT
  */
 
@@ -451,6 +451,12 @@ uis.controller('uiSelectCtrl',
             ctrl.$animate.off('enter', container[0], animateHandler);
             $timeout(function () {
               ctrl.focusSearchInput(initSearchValue);
+            });
+            //add scroll to selected value
+          } else if (phase === 'start' && ctrl.activeIndex) {
+            ctrl.$animate.off('removeClass', searchInput[0], animateHandler);
+            $timeout(function () {
+              _ensureHighlightVisible();
             });
           }
         };

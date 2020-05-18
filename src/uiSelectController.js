@@ -150,6 +150,12 @@ uis.controller('uiSelectCtrl',
             $timeout(function () {
               ctrl.focusSearchInput(initSearchValue);
             });
+            //add scroll to selected value
+          } else if (phase === 'start' && ctrl.activeIndex) {
+            ctrl.$animate.off('removeClass', searchInput[0], animateHandler);
+            $timeout(function () {
+              _ensureHighlightVisible();
+            });
           }
         };
 
