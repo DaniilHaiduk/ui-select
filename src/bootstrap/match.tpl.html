@@ -6,7 +6,8 @@
         aria-label="{{ ($select.selectorAriaLabel || $select.selected.title) + ' activate' }}"
         aria-haspopup="listbox"
         aria-expanded="{{ $select.open }}"
-        aria-required="{{ $select.selectorAriaRequired }}">
+        aria-required="{{ $select.selectorAriaRequired }}"
+        id="selector-close-wrapper">
   <span tabindex="-1"
       class="btn btn-default form-control ui-select-toggle"
       aria-label="{{ $select.selected.title }} selected"
