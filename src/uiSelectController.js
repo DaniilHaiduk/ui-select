@@ -471,14 +471,14 @@ uis.controller('uiSelectCtrl',
   };
 
   ctrl.setFocus = function(){
-    if (!ctrl.focus) ctrl.focusInput[0].focus();
+    if (!ctrl.focus) angular.element(document.querySelector("#selector-close-wrapper")).focus();
   };
 
   ctrl.clear = function($event) {
     ctrl.select(null);
     $event.stopPropagation();
     $timeout(function() {
-      ctrl.focusser[0].focus();
+      angular.element(document.querySelector("#selector-close-wrapper")).focus();
     }, 0, false);
   };
 
