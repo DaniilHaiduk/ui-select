@@ -75,7 +75,7 @@ uis.directive('uiSelectSingle', ['$timeout','$compile', function($timeout, $comp
       scope.$on('uis:close', function (event, skipFocusser) {
         $timeout(function(){
           // $select.focusser.prop('disabled', false); remove focusser
-          if (!skipFocusser) angular.element(document.querySelector("#selector-close-wrapper")).focus(); //focus on input
+          if (!skipFocusser) angular.element(document.querySelector("#selector-close-wrapper-"+ $select.generatedId)).focus(); //focus on input
         },0,false);
       });
 
