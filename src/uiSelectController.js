@@ -471,14 +471,14 @@ uis.controller('uiSelectCtrl',
   };
 
   ctrl.setFocus = function(){
-    if (!ctrl.focus) angular.element(document.querySelector("#selector-close-wrapper")).focus();
+    if (!ctrl.focus) angular.element(document.querySelector("#selector-close-wrapper-"+ $scope.$select.generatedId)).focus();
   };
 
   ctrl.clear = function($event) {
     ctrl.select(null);
     $event.stopPropagation();
     $timeout(function() {
-      angular.element(document.querySelector("#selector-close-wrapper")).focus();
+      angular.element(document.querySelector("#selector-close-wrapper-" + $scope.$select.generatedId)).focus();
     }, 0, false);
   };
 
