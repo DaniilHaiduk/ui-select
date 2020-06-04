@@ -12,7 +12,6 @@
       class="btn btn-default form-control ui-select-toggle"
       aria-label="{{ $select.selected.title }} selected"
       ng-disabled="$select.disabled"
-      ng-click="$select.activate()"
       style="outline: 0;">
     <span ng-show="$select.isEmpty()" class="ui-select-placeholder text-muted">{{$select.placeholder}}</span>
     <span ng-hide="$select.isEmpty()" class="ui-select-match-text pull-left" ng-class="{'ui-select-allow-clear': $select.allowClear && !$select.isEmpty()}" ng-transclude=""></span>
